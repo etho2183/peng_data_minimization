@@ -7,10 +7,10 @@ Goal of the project is to develop a reusable library for crowd sensing services 
 ## Settings
 Settings are internally saved in a JSON format and need to be communicated to the privacy component by using the function setSettings(String json). The given String needs to be a valid JSON Object.
 Settings:
-- "roundAccel": bool -> rounds accelerator sensor values (x, y, z) to a given value list or interval.
+- "roundAccel": bool -> rounds accelerator sensor values (x, y, z) to a given interval.
 - "roundBrightness": bool -> rounds brightness sensor values to a given value list or interval.
 - "roundCompass": rounds compass sensor values (only bearing) to a given value list or interval.
-- "roundGyro": bool -> rounds gyroscope sensor values (x, y, z) to a given value list or interval.
+- "roundGyro": bool -> rounds gyroscope sensor values (x, y, z) to a given interval.
 
 - "maxminAccel": bool -> sends only maximum and minimum value of acceleration sensor.
 - "maxminBrightness": bool -> sends only maximum and minimum value of brightness sensor.
