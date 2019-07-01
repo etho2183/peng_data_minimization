@@ -1,4 +1,7 @@
 # Reusable Data Minimization Modules for Server and Client
+The Data Minimization Blocks were a project created as part of the lecture "Privacy Engineering" at Technical University Berlin. 
+Goal of the project is to develop a reusable library for crowd sensing services that enables programmers to easily make their new services more privacy-friendly. 
+**This project is currently work in progress.**
 
 # Documentation
 ## Settings
