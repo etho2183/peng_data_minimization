@@ -2,3 +2,5 @@
 *.iml
 Java code/.idea/modules.xml
 Java code/.idea/workspace.xml
+*.user
+example implementation/dataMiner/android/libs/.idea/workspace.xml

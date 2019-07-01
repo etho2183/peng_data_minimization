@@ -1,0 +1,16 @@
+{
+	"geoFences": [
+		{
+			"latitude": 52.476776,
+			"longitude": 13.280935,
+			"radius": 100,
+		},
+		{
+			"latitude": 52.478044, 
+			"longitude": 13.277523,
+			"radius": 10,
+		}
+	],
+	"obfuscateGPS": false,
+	"delayTransmission": true
+}
