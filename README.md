@@ -15,10 +15,9 @@ Settings are internally saved in a JSON format and need to be communicated to th
 - "roundGyro": bool -> rounds gyroscope sensor values (x, y, z) to a given interval.
 
 ### Rounding parameters
-All lists need to be in order, meaning smallest value at front ant biggest at end.
-- "roundListBrightness": [num, num, ...] -> List of sorted values that numeric data rounds to. Example: [-2, 0, 1]; -0.9 -> 0. If only one value is given, e.g. [1], it acts as a interval such as [..., -1, 0, 1, 2, ---].
-- "roundListCompass": As in "roundListBrightness" but for compass bearing. Values smaller than 0 and greater than 360 will autbe ignored.
 - "roundIntervalAccel": num -> Interval for which accelerator values shall be rounded. Example: num=3 rounds new values to [..., -3, 0, 3, 6, ...].
+- "roundIntervalBrightness": num -> As in "roundIntervalAccel" but for brightness values.
+- "roundIntervalCompass": num -> As in "roundIntervalAccel" but for compass values.
 - "roundIntervalGyro": num -> As in "roundIntervalAccel" but for gyroscope values.
 
 ### Maximum and minimum values
@@ -83,10 +82,10 @@ javaClass.callMethod<void>([method_name], "([input])[output]", [param1], [param2
 [input] are the Java JNI types in the syntax TypeTypeType...
 [output] is the output Java JNI type. 
 The JNI types are listed here: https://doc.qt.io/qt-5/qandroidjniobject.html#jni-types
-In this project, Double type (D) is used as input and void (V) is the return value.
+In this project, Double type (D) is used as input and bool (Z) is the return value.
 An example function call would look like this:
 ```C++
-javaClass.callMethod<void>("setAccelData", "(DDD)V", x, y, z);
+javaClass.callMethod<bool>("setAccelData", "(DDD)Z", x, y, z);
 ```
 ## Receive feedback (in QT C++) from the Minimization Block about quantity and quality of sent data
 The Java code calls a method 'giveDataFeedback(String s)' that does not have a definition:
