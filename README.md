@@ -15,6 +15,7 @@ Settings are internally saved in a JSON format and need to be communicated to th
 - "roundGyro": bool -> rounds gyroscope sensor values (x, y, z) to a given interval.
 
 ### Rounding parameters
+All lists need to be in order, meaning smallest value at front ant biggest at end.
 - "roundListBrightness": [num, num, ...] -> List of sorted values that numeric data rounds to. Example: [-2, 0, 1]; -0.9 -> 0. If only one value is given, e.g. [1], it acts as a interval such as [..., -1, 0, 1, 2, ---].
 - "roundListCompass": As in "roundListBrightness" but for compass bearing. Values smaller than 0 and greater than 360 will autbe ignored.
 - "roundIntervalAccel": num -> Interval for which accelerator values shall be rounded. Example: num=3 rounds new values to [..., -3, 0, 3, 6, ...].
@@ -42,7 +43,7 @@ Settings are internally saved in a JSON format and need to be communicated to th
 - 'useDelays': bool -> add random delays to each coordinate. After the delay, it gets sent to server
 ---> WARNING: using random delays might break the order of the coordinates. If your service relies on ordered packets and you want to apply temporal obfuscation, consider sending at fixed times
 - 'maxDelay': num -> highest possible delay in minutes
-- 'sendingTimes': [num, num, ...] -> times of day in minutes since midnight at which all buffered data should be sent to a server
+- 'sendingTimes': [num, num, ...] -> times of day in minutes since midnight at which all buffered data should be sent to a server. The list needs to be sorted so that the smallest value it at front.
 ---> WARNING: since no actual storage takes place, terminating the application will lead to loss of all buffered data
 
 ### Decentralized identity obfuscation (not implemented)
