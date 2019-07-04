@@ -75,7 +75,7 @@ First, a QAndroidJniEnvironment is needed to find the class inside of the .jar
 QAndroidJniEnvironment env;
 jQAndroidJniObject javaClass = QAndroidJniObject(env.findClass("[package_name]/ClientDataMinimizer"));
 ```
-Now to use a method from the created ClientDataMinimiter instatiation, write:
+Now to use a method from the created ClientDataMinimizer instantiation, write:
 ```C++
 javaClass.callMethod<void>([method_name], "([input])[output]", [param1], [param2], ...);
 ```
