@@ -1,4 +1,4 @@
-# Reusable Data Minimization Modules for Server and Client
+# Reusable Data Minimization Module for Client side data collection
 The Data Minimization Blocks were a project created as part of the lecture "Privacy Engineering" at Technical University Berlin. 
 Goal of the project is to develop a reusable library for crowd sensing services that enables programmers to easily make their new services more privacy-friendly. It obfuscates sensor readings and links them to the next collected coordinate. Several obfuscation settings are supported and explained in the following lines.
 There is also a functionality to give the user feedback about the quantity and quality of data that has been sent to a server.
