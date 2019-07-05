@@ -136,23 +136,48 @@ QVariantMap File::getSettings()
   QVariantMap map;
   QJsonObject obj = settings.object();
   qDebug() << "print object: " << settings.toJson();
-  qDebug() << "reading settings: avgAccel: " << obj.value("avgAccel") << obj.value("avgAccel").toBool();
+  /*
+  if (!obj.value("roundAccel").isUndefined()) map.insert("roundAccel", obj.value("roundAccel").toBool());
+  else                                        map.insert("roundAccel", false);
+  if (!obj.value("roundBrightness").isUndefined())  map.insert("roundBrightness", obj.value("roundBrightness").toBool());
+  else                                              map.insert("roundBrightness", false);
+  if (!obj.value("roundGyro").isUndefined())  map.insert("roundGyro", obj.value("roundGyro").toBool());
+  else                                        map.insert("roundGyro", false);
+  if (!obj.value("roundCompass").isUndefined())  map.insert("roundCompass", obj.value("roundCompass").toBool());
+  else                                           map.insert("roundCompass", false);
   if (!obj.value("avgAccel").isUndefined()) map.insert("avgAccel", obj.value("avgAccel").toBool());
   else                                      map.insert("avgAccel", false);
   if (!obj.value("avgBrightness").isUndefined())  map.insert("avgBrightness", obj.value("avgBrightness").toBool());
   else                                            map.insert("avgBrightness", false);
   if (!obj.value("avgGyro").isUndefined())  map.insert("avgGyro", obj.value("avgGyro").toBool());
   else                                      map.insert("avgGyro", false);
-  if (!obj.value("rangeAccel").isUndefined()) map.insert("rangeAccel", obj.value("rangeAccel").toBool());
-  else                                        map.insert("rangeAccel", false);
-  if (!obj.value("rangeBrightness").isUndefined())  map.insert("rangeBrightness", obj.value("rangeBrightness").toBool());
-  else                                              map.insert("rangeBrightness", false);
-  if (!obj.value("rangeGyro").isUndefined())  map.insert("rangeGyro", obj.value("rangeGyro").toBool());
-  else                                        map.insert("rangeGyro", false);
   if (!obj.value("peerToPeer").isUndefined()) map.insert("peer", obj.value("peer").toBool());
   else                                        map.insert("peer", false);
   if (!obj.value("delay").isUndefined()) map.insert("delay", obj.value("delay").toBool());
   else                                   map.insert("delay", false);
+  */
+  // it's an example implementation, we can skip error detection
+  map.insert("roundAccel", obj.value("roundAccel").toBool());
+  map.insert("roundBrightness", obj.value("roundBrightness").toBool());
+  map.insert("roundGyro", obj.value("roundGyro").toBool());
+  map.insert("roundCompass", obj.value("roundCompass").toBool());
+
+  map.insert("maxminAccel", obj.value("maxminAccel").toBool());
+  map.insert("maxminBrightness", obj.value("maxminBrightness").toBool());
+  map.insert("maxminCompass", obj.value("maxminCompass").toBool());
+  map.insert("maxminGyro", obj.value("maxminGyro").toBool());
+
+  map.insert("avgAccel", obj.value("avgAccel").toBool());
+  map.insert("avgBrightness", obj.value("avgBrightness").toBool());
+  map.insert("avgCompass", obj.value("avgCompass").toBool());
+  map.insert("avgGyro", obj.value("avgGyro").toBool());
+
+  map.insert("obfuscateGps", obj.value("obfuscateGps").toBool());
+
+  map.insert("temporalObfuscation", obj.value("temporalObfuscation").toBool());
+  map.insert("useDelays", obj.value("useDelays").toBool());
+
+  map.insert("usePeerToPeer", obj.value("usePeerToPeer").toBool());
 
   return map;
 }

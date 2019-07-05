@@ -1,0 +1,40 @@
+{
+	"roundAccel": true,
+	"roundBrightness": true,
+	"roundGyro": true,
+	"roundCompass": true,
+
+	"roundIntervalAccel": 3,
+	"roundIntervalBrightness": 100,
+	"roundIntervalCompass": 10,
+	"roundIntervalGyro": 5,
+
+	"maxminAccel": false,
+	"maxminBrightness": false,
+	"maxminCompass": false,
+	"maxminGyro": false,
+
+	"avgAccel": true,
+	"avgBrightness": true,
+	"avgGyro": true,
+	"avgCompass": true,
+
+	"obfuscateGps": false,
+	"gpsRadius": 0.1,
+	"geoFences": [
+		{
+			"latitude": 52.512444,
+			"longitude": 13.327021,
+			"radius": 1
+		}
+	],
+	
+	"temporalObfuscation": true,
+	"useDelays": false,
+	"maxDelay": 720,
+	"sendingTimes": [1, 360, 720, 1080, 1280, 1285, 1290, 1295, 1300],
+
+	"usePeerToPeer": false
+}
+
+

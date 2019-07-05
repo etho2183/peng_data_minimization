@@ -56,7 +56,6 @@ ApplicationWindow {
             var x = sensor_gyro.reading.x;
             var y = sensor_gyro.reading.y;
             var z = sensor_gyro.reading.z;
-            console.log("Gyroscope: " + x + ", " + y + ", " + z);
             JavaBridge.setGyroValue([x, y, z]);
         }
     }
@@ -188,6 +187,12 @@ ApplicationWindow {
                 switch_delay.checked = map.delay;
             }
 
+            button_applyDelay.onClicked:
+            {
+                var delay = textInput_delay.text;
+                File.setSetting("maxDelay", delay, false);
+            }
+
             button_none.onClicked: {
                 switch_avg_accel.checked = false;
                 switch_avg_bright.checked = false;
@@ -236,6 +241,21 @@ ApplicationWindow {
                 else                            File.setSetting("avgAccel", "false", false);
             }
 
+            switch_maxmin_accel.onCheckedChanged: {
+                if (switch_maxmin_accel.checked)   File.setSetting("maxminAccel", "true", false);
+                else                               File.setSetting("maxminAccel", "false", false);
+            }
+
+            switch_maxmin_bright.onCheckedChanged: {
+                if (switch_maxmin_bright.checked)   File.setSetting("maxminBrightness", "true", false);
+                else                                File.setSetting("maxminBrightness", "false", false);
+            }
+
+            switch_maxmin_gyro.onCheckedChanged: {
+                if (switch_maxmin_gyro.checked)   File.setSetting("maxminGyro", "true", false);
+                else                              File.setSetting("maxminGyro", "false", false);
+            }
+
             switch_rng_gyro.onCheckedChanged: {
                 if (switch_rng_gyro.checked)    File.setSetting("roundGyro", "true", false);
                 else                            File.setSetting("roundGyro", "false", false);
@@ -253,14 +273,19 @@ ApplicationWindow {
             }
 
             switch_delay.onCheckedChanged: {
-                if (switch_delay.checked)   File.setSetting("delay", "true", false);
-                else                        File.setSetting("delay", "false", false);
+                if (switch_delay.checked)        File.setSetting("temporalObfuscation", "true", false);
+                else                             File.setSetting("temporalObfuscation", "false", false);
+            }
+
+            switch_randomDelay.onCheckedChanged: {
+                if (switch_randomDelay.checked)        File.setSetting("useDelays", "true", false);
+                else                                   File.setSetting("useDelays", "false", false);
             }
 
             switch_peer.onCheckedChanged: {
                 if (switch_peer.checked)        File.setSetting("peerToPeer", "true", false);
                 else                            File.setSetting("peerToPeer", "false", false);
-            }  
+            }
 
         }
     }
